@@ -58,6 +58,72 @@
             margin-bottom: 1rem;
         }
 
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-box {
+            background: #f0f3ff;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #6e8efb;
+        }
+
+        .skill-box strong {
+            color: #6e8efb;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .project-box {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #a777e3;
+        }
+
+        .project-box h3 {
+            color: #6e8efb;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            background: #6e8efb;
+            color: white;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #5574f7;
+        }
+
         /* Button Styling */
         .btn {
             display: inline-block;
@@ -102,10 +168,57 @@
             <p>Hello! Mera naam Vivek Patel hai. Mujhe nayi cheezein seekhna aur technology ke saath experiment karna bohot pasand hai. Yeh meri pehli static website hai jise maine GitHub Pages ki madad se free me host kiya hai.</p>
         </div>
 
+        <!-- Skills Section -->
+        <div class="card">
+            <h2>Meri Skills 💻</h2>
+            <div class="skills-grid">
+                <div class="skill-box">
+                    <strong>HTML</strong>
+                    <p>Beginner</p>
+                </div>
+                <div class="skill-box">
+                    <strong>CSS</strong>
+                    <p>Beginner</p>
+                </div>
+                <div class="skill-box">
+                    <strong>JavaScript</strong>
+                    <p>Learning 📚</p>
+                </div>
+                <div class="skill-box">
+                    <strong>GitHub</strong>
+                    <p>Learning 📚</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="card">
+            <h2>Meri Projects 🚀</h2>
+            <div class="projects-grid">
+                <div class="project-box">
+                    <h3>Personal Website</h3>
+                    <p>Yeh meri pehli static website hai. HTML aur CSS se banai hai.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Goals Section -->
         <div class="card">
             <h2>Mera Agla Target 🎯</h2>
             <p>Abhi maine sirf HTML aur CSS shuru kiya hai. Agle kuch dino me main JavaScript seekhunga taaki apni website me features aur animations jod saku.</p>
-            <a href="mailto:your-email@example.com" class="btn">Mujhse Contact Karein</a>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="card">
+            <h2>Mujhse Judein 📞</h2>
+            <p>Aap mujhe neeche diye gaye channels se contact kar sakte ho:</p>
+            <div class="social-links">
+                <a href="https://github.com/Vivekpatelcoder" title="GitHub">🔗</a>
+                <a href="mailto:vivekpatelking751@gmail.com" title="Email">📧</a>
+                <a href="https://twitter.com" title="Twitter">𝕏</a>
+                <a href="https://linkedin.com" title="LinkedIn">in</a>
+            </div>
+            <a href="mailto:vivekpatelking751@gmail.com" class="btn">Email Bhejo</a>
         </div>
 
     </div>
