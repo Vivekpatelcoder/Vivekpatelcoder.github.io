@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meri Pehli Website</title>
+    <title>Meri Animated Website</title>
     <style>
-        /* CSS Styling - Website ko sunder banane ke liye */
         * {
             margin: 0;
             padding: 0;
@@ -17,40 +16,104 @@
             background-color: #f4f7f6;
             color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Header Section */
+        /* --- 1. KEYFRAMES ANIMATIONS (Yahan se animation shuru hota hai) --- */
+        
+        /* Upar se niche aane ka animation */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Niche se upar aane ka animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Button ka heartbeat/pulse animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Skills grid animation */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+            to {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+        }
+
+        /* --- 2. LAYOUT STYLING WITH ANIMATIONS --- */
+
         header {
             background: linear-gradient(135deg, #6e8efb, #a777e3);
             color: white;
             text-align: center;
-            padding: 3rem 1rem;
+            padding: 4rem 1rem;
         }
 
+        /* Header ke text par animation apply kiya */
         header h1 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
+            animation: fadeInDown 1s ease-out;
         }
 
         header p {
             font-size: 1.1rem;
             opacity: 0.9;
+            animation: fadeInDown 1.2s ease-out;
         }
 
-        /* Main Content Container */
         .container {
             max-width: 800px;
             margin: 2rem auto;
             padding: 0 1.5rem;
         }
 
-        /* Card / Box Styling */
+        /* Cards par smooth slide-up animation */
         .card {
             background: white;
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out both;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Card delays for staggered animation */
+        .card:nth-child(1) { animation-delay: 0.2s; }
+        .card:nth-child(2) { animation-delay: 0.4s; }
+        .card:nth-child(3) { animation-delay: 0.6s; }
+        .card:nth-child(4) { animation-delay: 0.8s; }
+        .card:nth-child(5) { animation-delay: 1s; }
+
+        /* Hover Effect: Jab aap card par ungli ya mouse rakhenge */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(110, 142, 251, 0.2);
         }
 
         .card h2 {
@@ -72,6 +135,12 @@
             border-radius: 8px;
             text-align: center;
             border-left: 4px solid #6e8efb;
+            animation: slideIn 0.8s ease-out;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-box:hover {
+            transform: scale(1.05);
         }
 
         .skill-box strong {
@@ -91,6 +160,12 @@
             padding: 1.5rem;
             border-radius: 8px;
             border-left: 4px solid #a777e3;
+            animation: fadeInUp 0.8s ease-out;
+            transition: transform 0.3s ease;
+        }
+
+        .project-box:hover {
+            transform: translateX(5px);
         }
 
         .project-box h3 {
@@ -118,15 +193,18 @@
             border-radius: 50%;
             text-decoration: none;
             font-weight: bold;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
             font-size: 1.2rem;
+            animation: fadeInUp 0.6s ease-out;
         }
 
         .social-links a:hover {
             background: #5574f7;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(110, 142, 251, 0.3);
         }
 
-        /* Button Styling */
+        /* Button Styling aur continuous Pulse animation */
         .btn {
             display: inline-block;
             background: #6e8efb;
@@ -136,14 +214,15 @@
             border-radius: 25px;
             margin-top: 1rem;
             font-weight: bold;
+            animation: pulse 2s infinite ease-in-out;
             transition: background 0.3s ease;
         }
 
         .btn:hover {
             background: #5574f7;
+            animation-play-state: paused;
         }
 
-        /* Footer Section */
         footer {
             text-align: center;
             padding: 2rem;
@@ -151,23 +230,22 @@
             color: white;
             margin-top: 4rem;
             font-size: 0.9rem;
+            animation: fadeInUp 1.5s ease-out;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
     <header>
-        <h1>Welcome To My Website!</h1>
-        <p>Maine yeh website apne phone se GitHub par banayi hai.</p>
+        <h1>Welcome To My Animated Website! ✨</h1>
+        <p>Maine yeh website apne phone se GitHub par banayi hai aur CSS se animate kiya hai.</p>
     </header>
 
-    <!-- Main Content -->
     <div class="container">
         
         <div class="card">
             <h2>Mere Bare Me (About Me)</h2>
-            <p>Hello! Mera naam Vivek Patel hai. Mujhe nayi cheezein seekhna aur technology ke saath experiment karna bohot pasand hai. Yeh meri pehli static website hai jise maine GitHub Pages ki madad se free me host kiya hai.</p>
+            <p>Hello! Mera naam Vivek Patel hai. Mujhe nayi cheezein seekhna aur technology ke saath experiment karna bohot pasand hai. Yeh meri pehli static website hai jise maine GitHub Pages ki madad se free me host kiya hai aur ab animations bhi add kar diye hain!</p>
         </div>
 
         <!-- Skills Section -->
@@ -198,8 +276,8 @@
             <h2>Meri Projects 🚀</h2>
             <div class="projects-grid">
                 <div class="project-box">
-                    <h3>Personal Website</h3>
-                    <p>Yeh meri pehli static website hai. HTML aur CSS se banai hai.</p>
+                    <h3>Personal Animated Website</h3>
+                    <p>Yeh meri pehli static website hai jise maine HTML aur CSS se banai hai aur ab smooth animations bhi add kar diye hain!</p>
                 </div>
             </div>
         </div>
@@ -207,7 +285,7 @@
         <!-- Goals Section -->
         <div class="card">
             <h2>Mera Agla Target 🎯</h2>
-            <p>Abhi maine sirf HTML aur CSS shuru kiya hai. Agle kuch dino me main JavaScript seekhunga taaki apni website me features aur animations jod saku.</p>
+            <p>Abhi maine HTML, CSS aur basic animations shuru kiye hain. Agle kuch dino me main JavaScript seekhunga taaki apni website me aur interactive features aur dynamic animations jod saku.</p>
         </div>
 
         <!-- Contact Section -->
@@ -228,7 +306,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 Made with ❤️ by Vivek Patel</p>
+        <p>© 2026 Made with ❤️ and CSS Animations by Vivek Patel</p>
     </footer>
 
 </body>
